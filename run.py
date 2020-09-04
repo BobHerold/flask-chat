@@ -1,10 +1,20 @@
 import os
-from flask import flask
+from flask import Flask
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "<h1>Hello There!</h1>"
+    """Main page with instructions"""
+    return "To send a message use /USERNAME/MESSAGE"
 
-app.run(host=os.getenv('IP'), port=int(os.getenv('PORT')), debug=True)
+@app.route('/<username>')
+def user(username):
+    return "Hi " + username
+
+@app.route('/<username>/<message>')    
+
+if __name__ =="__main__":
+    app.run(host=os.getenv('IP'), 
+    port=int(os.getenv('PORT')),
+    debug=True)
