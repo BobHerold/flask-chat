@@ -12,7 +12,9 @@ def index():
 def user(username):
     return "Hi " + username
 
-@app.route('/<username>/<message>')    
+@app.route('/<username>/<message>')
+def send_message(username, message):
+    return "{0}: {1}". format(username, message)  
 
 if __name__ =="__main__":
     app.run(host=os.getenv('IP'), 
